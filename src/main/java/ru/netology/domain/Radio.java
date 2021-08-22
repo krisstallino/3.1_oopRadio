@@ -46,12 +46,24 @@ public class Radio {
         currentStation++; //инкремент, увеличивает значение операнда на 1
     }
 
+    public void increaseStationOverLimit () {
+        if (currentStation > maxStation) {
+            currentStation = minStation;
+        }
+    }
+
     public void decreaseCurrentStation() {
         if (currentStation == minStation) {
             currentStation = maxStation;
             return;
         }
         currentStation--; //инкремент, уменьшает значение операнда на 1
+    }
+
+    public void decreaseStationOverLimit () {
+        if (currentStation < minStation) {
+            currentStation = maxStation;
+        }
     }
 
     public int getMinVolume() {
