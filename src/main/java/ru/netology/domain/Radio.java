@@ -19,7 +19,6 @@ public class Radio {
         }
         if (currentStation < minStation) {
             this.currentStation = maxStation;
-            return;
         }
     }
 
@@ -43,24 +42,13 @@ public class Radio {
         }
         currentStation++;
     }
-    public void increaseStationOverLimit () {
-        if (currentStation > maxStation) {
-            currentStation = minStation;
-            return;
-        }
-    }
+
     public void setPreviousStation() {
         if (currentStation == minStation) {
             currentStation = maxStation;
             return;
         }
         currentStation--;
-    }
-    public void decreaseStationOverLimit () {
-        if (currentStation < minStation) {
-            currentStation = maxStation;
-            return;
-        }
     }
 
    public int getMinVolume() {
@@ -103,24 +91,12 @@ public class Radio {
         currentVolume++;
     }
 
-    public void increaseVolumeOverLimit () {
-        if (currentVolume > maxVolume) {
-            currentVolume = maxVolume;
-        }
-    }
-
     public void decreaseCurrentVolume() {
         if (currentVolume == minVolume) {
             currentVolume = maxVolume;
             return;
         }
         currentVolume--;
-    }
-
-    public void decreaseVolumeOverLimit () {
-        if (currentVolume < minVolume) {
-            currentVolume = minVolume;
-        }
     }
 }
 
