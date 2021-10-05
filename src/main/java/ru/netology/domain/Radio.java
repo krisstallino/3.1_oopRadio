@@ -11,20 +11,6 @@ public class Radio {
     public int getCurrentStation() {
         return currentStation;
     }
-
-    /*public int getMinStation() {
-        return minStation;
-    }
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
-    public int getMaxStation() {
-        return maxStation;
-    }
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }*/
-
     public void setCurrentStation(int currentStation) {
         this.currentStation = currentStation;
         if (currentStation > maxStation) {
@@ -36,35 +22,48 @@ public class Radio {
             return;
         }
     }
-    public void increaseCurrentStation() {
-        if (currentStation == maxStation) { //равны или нет значения, если да, то условие становится истинным
-            currentStation = minStation;
-            return;
-        }
-        currentStation++; //инкремент, увеличивает значение операнда на 1
+
+    public int getMinStation() {
+        return minStation;
+    }
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
+    }
+    public int getMaxStation() {
+        return maxStation;
+    }
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
     }
 
+    public void setNextStation() {
+        if (currentStation == maxStation) {
+            this.currentStation = minStation;
+            return;
+        }
+        currentStation++;
+    }
     public void increaseStationOverLimit () {
         if (currentStation > maxStation) {
             currentStation = minStation;
+            return;
         }
     }
-
-    public void decreaseCurrentStation() {
+    public void setPreviousStation() {
         if (currentStation == minStation) {
             currentStation = maxStation;
             return;
         }
-        currentStation--; //инкремент, уменьшает значение операнда на 1
+        currentStation--;
     }
-
     public void decreaseStationOverLimit () {
         if (currentStation < minStation) {
             currentStation = maxStation;
+            return;
         }
     }
 
-   /* public int getMinVolume() {
+   public int getMinVolume() {
         return minVolume;
     }
 
@@ -78,7 +77,7 @@ public class Radio {
 
     public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
-    }*/
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
